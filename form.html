@@ -1,0 +1,174 @@
+ <!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+ 
+
+
+<style>
+body {font-family: Arial;}
+
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+</head>
+<body>
+
+<h2>Fill the following details with utmost care</h2>
+<p>Make sure that all information is true</p>
+
+<div class="tab">
+
+
+  <button class="tablinks" onclick="openCity(event, 'Personal')">Personal Information</button>
+  <button class="tablinks" onclick="openCity(event, 'Academics')">Academics</button>
+  <button class="tablinks" onclick="openCity(event, 'Technical')">Technical Skills</button>
+  <button class="tablinks" onclick="openCity(event, 'Technical')">Projects</button>
+  <button class="tablinks" onclick="openCity(event, 'Technical')">Achievements</button>
+  <button class="tablinks" onclick="openCity(event, 'Technical')">Extracurriculum</button>
+  <button class="tablinks" onclick="openCity(event, 'Print')">Print</button>
+
+
+</div>
+
+<div id="Personal" class="tabcontent">
+  <h3></h3>
+  <p></p>
+  <form name = "f1">
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Name</label>
+    <input name = "Name" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input name = "emailinput" type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Phone number</label>
+    <input name = "Phone" type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
+
+  <!-- Group of default radios - option 1 -->
+<div class="custom-control custom-radio">
+  <input type="radio" class="custom-control-input" id="Male" name="gender">
+  <label class="custom-control-label" for="defaultGroupExample1">Male</label>
+</div>
+
+<!-- Group of default radios - option 2 -->
+<div class="custom-control custom-radio">
+  <input type="radio" class="custom-control-input" id="Female" name="gender" checked>
+  <label class="custom-control-label" for="defaultGroupExample2">Female</label>
+</div>
+
+<!-- Group of default radios - option 3 -->
+<div class="custom-control custom-radio">
+  <input type="radio" class="custom-control-input" id="Others" name="gender">
+  <label class="custom-control-label" for="defaultGroupExample3">Others</label>
+</div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Address</label>
+    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+  </div>
+
+
+
+</form>
+
+</div>
+
+<div id="Academics" class="tabcontent">
+  <h3>Paris</h3>
+  <p>Paris is the capital of France.</p> 
+</div>
+
+<div id="Technical" class="tabcontent">
+  <h3>Tokyo</h3>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  if(cityName == "Print") {
+        //var divContents = document.getElementById("emailinput").innerHTML; 
+        var name = document.forms["f1"]["Name"].value;
+        var email = document.forms["f1"]["emailinput"].value;
+        var Phone = document.forms["f1"]["Phone"].value;
+        var gender = document.forms["f1"]["gender"].value;
+
+        var a = window.open('', '', 'height=500, width=500'); 
+        a.document.write('<html>'); 
+        a.document.write('<body >'); 
+        a.document.write("<br>")
+        a.document.write(name);
+        a.document.write("<br>")
+        a.document.write(email);
+        a.document.write("<br>")
+        a.document.write(Phone);
+        a.document.write("<br>")
+        a.document.write(gender);
+
+        a.document.write('</body></html>'); 
+        a.document.close(); 
+        a.print(); 
+
+
+
+  }
+
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+</script>
+   
+</body>
+</html> 
